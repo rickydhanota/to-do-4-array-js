@@ -2,17 +2,20 @@
 //In JavaScript, the Array object has numerous useful methods. It does not, however, contain a method that will randomize the order of an array’s elements. Let’s create shuffle(arr), to efficiently shuffle a given array’s values. Work in-place, naturally. Do you need to return anything from your function?
 
 function shuffle(arr){
-    for (var i=0; i<arr.length; i++){
-        rPlacement = Math.floor(Math.random()*arr.length-1);
+    for (var i=0; i<arr.length; i++){// start at 0
+        rPlacement = Math.floor(Math.random()*arr.length);//gives us a new random number everytime we 
+        console.log("The random number is", rPlacement);
         for (var j=0; j<rPlacement; j++){
             temp = arr[j];
             arr[j] = arr[j+1];
             arr[j+1] = temp;
         }
+        console.log("The shuffled array is", arr)
+        console.log("-----------------------------------")
     }
     return arr;
 }
-console.log(shuffle([1,2,3,4]));
+// console.log(shuffle([1,2,3,4,5]));
 
 
 //Given array, and indices start and end, remove vals in that index range, working in-place (hence shortening the array). Given ([20,30,40,50,60,70],2,4), change to [20,30,70] and return it.
