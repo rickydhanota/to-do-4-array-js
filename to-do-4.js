@@ -20,8 +20,27 @@ function shuffle(arr){
 
 //Given array, and indices start and end, remove vals in that index range, working in-place (hence shortening the array). Given ([20,30,40,50,60,70],2,4), change to [20,30,70] and return it.
 
-
-
+function removeRange(arr, start, end){
+    for (i = 0; i<arr.length-1; i++){
+        console.log("start of for loop", i)
+        if(i >= start && i<=end){
+            console.log("this is i", i)
+            for (var j = i; j<arr.length-1; j++){
+                console.log("made it to second loop")
+                temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp; //easier way to swap = [a,b] = [b,a]
+                //[arr[j], arr[j+1]] = [arr[j+1], arr[j]]
+                console.log("shifted array, prior to cutting off end", arr)
+            }
+            arr.length = arr.length-1;
+            i--;
+            console.log("shifted array", arr)
+        }
+    }
+    return arr;
+}
+console.log(removeRange([1,2,3,4], 1,2));
 
 
 //You will be given an array of numbers. After every tenth element, add an additional element containing the sum of those ten values. If the array does not end aligned evenly with ten elements, add one last sum that includes those last elements not yet been included in one of the earlier sums. Given the array [1,2,1,2,1,2,1,2,1,2,1,2,1,2], change it to [1,2,1,2,1,2,1,2,1,2,15,1,2,1,2,6].
